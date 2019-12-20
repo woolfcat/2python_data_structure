@@ -23,7 +23,6 @@ text = "X-DSPAM-Confidence:    0.8475"
 a=text.split(' ')
 n=0
 for i in a:
-    n+=1
     try :
         num=float(i)
         print(num)
@@ -43,7 +42,7 @@ print(num)
 #function -- 判断函数。
 #iterable -- 可迭代对象。
 python2 可用filter
-python3 要import re
+python3 要import re（正则法）
 
 text = "X-DSPAM-Confidence:    0.8475"
 import re
@@ -51,7 +50,15 @@ text= re.sub("\D", "",text)
 print(text)
 结果：08475（小数点“.”没了）
 
-str.isdigit 无法保留小数点?
+str.isdigit 只能识别是否阿拉伯数字，无法识别小数点。
+str.isnumeric 可以识别阿拉伯数字和文字的数字。
+a="一二三"
+print(a.isdigit())
+print(a.isnumeric())
+结果：False
+     True
+
+正则法貌似都识别不了小数点，只能识别数字，可用于提取数字。
 
 
 
