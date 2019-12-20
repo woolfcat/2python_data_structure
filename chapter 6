@@ -3,9 +3,56 @@
 # Write code using find() and string slicing (see section 6.10) to extract the number at the end of the line below. 
 # Convert the extracted value to a floating point number and print it out.
 
+法一：
+（课堂所学）
 text = "X-DSPAM-Confidence:    0.8475"
 pos=text.find(':')
 snum=text[pos+1:]
 fnum=float(snum.strip())
 print(fnum)
 print(type(fnum))
+
+法二：
+（.split）
+text = "X-DSPAM-Confidence:    0.8475"
+num=text.split(' ')[-1]
+print(num)
+
+法二-1（完善）：
+text = "X-DSPAM-Confidence:    0.8475"
+a=text.split(' ')
+n=0
+for i in a:
+    n+=1
+    try :
+        num=float(i)
+        print(num)
+    except:
+        pass
+
+
+
+法三：
+text = "X-DSPAM-Confidence:    0.8475"
+num=text[-6:]
+print(num)
+
+法四：
+（filter）
+#filter(function, iterable)
+#function -- 判断函数。
+#iterable -- 可迭代对象。
+python2 可用filter
+python3 要import re
+
+text = "X-DSPAM-Confidence:    0.8475"
+import re
+text= re.sub("\D", "",text)
+print(text)
+结果：08475（小数点“.”没了）
+
+str.isdigit 无法保留小数点?
+
+
+
+
