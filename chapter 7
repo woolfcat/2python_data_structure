@@ -1,1 +1,65 @@
+case 1：
+stuff='x\nx'
+print(stuff)
+len(stuff)
 
+case 2：
+fname=input('enter the file name: ')
+try:
+    fhand=open(fname)
+except:
+    print('file cannot be opened:',fname)
+    quit()
+    
+count=0
+for line in fhand:
+    if line.startswith('subject:'):
+        count=count+1
+print('there were',count,'subject lines in',fname)
+
+
+
+'''
+assignment 7.1
+
+7.1 Write a program that prompts for a file name, then opens that file and reads
+through the file, and print the contents of the file in upper case. Use the file
+words.txt to produce the output below.
+You can download the sample data at http://www.pythonlearn.com/code/words.txt
+'''
+
+fname=input('enter the file name:')
+fhand=open(fname)
+for lx in fhand:
+    ly=lx.rstrip()
+    print(ly.upper())
+    
+    
+    
+'''
+assignment 7.2
+
+7.2 Write a program that prompts for a file name, then opens that file and reads through the file, looking for lines of the form:
+X-DSPAM-Confidence:    0.8475
+Count these lines and extract the floating point values from each of the lines and
+compute the average of those values and produce an output as shown below. Do
+not use the sum() function or a variable named sum in your solution.
+You can download the sample data at http://www.pythonlearn.com/code/mbox-short.txt when you are testing below enter mbox-short.txt as the file name.
+'''
+    
+fh=open('mbox-short.txt')
+count=0
+total=0
+
+for l in fh:
+    if l.startswith('X-DSPAM-Confidence:'):
+        count=count+1
+        lx=l.rstrip()
+        print(lx)
+        pos=lx.find(':')
+        snum=lx[pos+1:]
+        fnum=float(snum)
+        total=total+fnum
+        
+print(count)
+print('average:',total/count)    
