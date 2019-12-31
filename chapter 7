@@ -61,8 +61,8 @@ for l in fh:
         fnum=float(snum)
         total=total+fnum
         
+print(count)        
 if count==0:
     print('average:0')  
-else:
-    print(count)
+else:    
     print('average:',total/count)       
