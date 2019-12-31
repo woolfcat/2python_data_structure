@@ -6,7 +6,7 @@ in the list and if not append it to the list. When the program completes,
 sort and print the resulting words in alphabetical order.
 You can download the sample data at http://www.pythonlearn.com/code/romeo.txt
 '''
-METHOD-1：
+#METHOD-1：
 
 fname=input("enter the file name:")
 fh=open(fname)
@@ -25,7 +25,7 @@ print(words)
 
 
 
-METHOD-2：
+#METHOD-2：
 
 fh=open('romeo.txt')
 words=list()
