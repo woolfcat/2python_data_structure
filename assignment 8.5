@@ -13,10 +13,10 @@ You can download the sample data at http://www.pythonlearn.com/code/mbox-short.t
 fh=open('mbox-short.txt')
 count=0
 for l in fh:
-    if l.startswith('From:'):
+    if l.startswith('From'):
         line=l.rstrip()
         words=line.split(' ')
-        if not words[0]=='From:':
+        if not words[0]=='From':
             continue
         count=count+1
         print(words[1])
