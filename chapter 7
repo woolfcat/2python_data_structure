@@ -61,5 +61,8 @@ for l in fh:
         fnum=float(snum)
         total=total+fnum
         
-print(count)
-print('average:',total/count)    
+if count==0:
+    print('average:0')  
+else:
+    print(count)
+    print('average:',total/count)       
