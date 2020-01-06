@@ -56,3 +56,19 @@ for i in sorted(hc.items()):
 
 for h,t in sorted(hc.items()):
     print(h,t)
+
+    
+....6/1/2020....
+fh=open('mbox-short.txt')
+hc=dict()
+for line in fh:
+    if line.startswith('From'):
+        li=line.rstrip()
+        l=li.split()
+        if l[0]!='From':
+            continue
+        ti=l[5].split(':')[0]
+        hc[ti]=hc.get(ti,0)+1
+        
+for h,c in sorted(hc.items()):
+    print(h,c)
